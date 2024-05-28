@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.auroraos.NotesTasks
+Exec=/usr/bin/ru.auroraos.NotesTasks
+Name=NotesTasks
+Name[ru]=ЗаметкиЗадачи
+
+[X-Application]
+Permissions=SecureStorage;Audio;Bluetooth;Camera;Internet;MediaIndexing;Microphone;RemovableMedia;UserDirs
+OrganizationName=ru.auroraos
+ApplicationName=NotesTasks
+ExecDBus=/usr/bin/ru.auroraos.NotesTasks
