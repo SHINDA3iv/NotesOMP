@@ -7,19 +7,24 @@ Dialog{
     property string fileName
     property string fileType
     property string directory
+    backgroundColor: "#aaf2f0"
     DialogHeader{
         id: header
         acceptText: "Принять"
         cancelText: "Отмена"
+
     }
     TextField{
         anchors.top: header.bottom
         id: fileInput
+        color: "#000000"
         placeholderText: "Имя файла"
+        placeholderColor: "#7f8181"
     }
     TextSwitch{
         anchors.top: fileInput.bottom
         id: txt
+
         text: "txt"
         onCheckedChanged:  {
             csv.checked = false
@@ -33,11 +38,25 @@ Dialog{
             txt.checked = false
         }
     }
-    Button{
-        text: "Выбрать папку"
+
+    Rectangle {
         anchors.top: csv.bottom
         anchors.topMargin: 20
-        onClicked: pageStack.push(exportPathPicker)
+        width: 300
+        height: 100
+        color: "#2ae5e0"                        //цвет бекграунда кнопки
+        radius: 20
+        anchors.left: parent.left
+        anchors.leftMargin: 210
+
+        Button{
+            color: "#000000"
+            text: "Выбрать папку"
+            width: 300
+            height: parent.height
+            backgroundColor: "#2ae5e0"
+            onClicked: pageStack.push(exportPathPicker)
+        }
     }
 
     onAccepted:{
@@ -46,6 +65,7 @@ Dialog{
         if(csv.checked)
             fileType = ".csv"
         fileName = directory + "/" + fileInput.text + fileType
+        console.log(fileName)
     }
 
     FolderPickerPage {

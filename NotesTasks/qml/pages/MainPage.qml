@@ -51,16 +51,18 @@ Page {
             property string importFilePath
             property string exportFilePath
             property string exportDirectoryPath
-            backgroundColor: "white"
-            highlightColor: "blue"
+            backgroundColor: "#2ae5e0"
+            highlightColor: "#94edeb"
             MenuItem {
                 text: qsTr("Импортировать")
+                color: "#000000"
                 onClicked:{
                      pageStack.push(importFilePicker)
                 }
             }
             MenuItem {
                 text: qsTr("Экспортировать")
+                color: "#000000"
                 onClicked:{
                     var dialog = pageStack.push(Qt.resolvedUrl("ExportFile.qml"))
                     dialog.accepted.connect(function(){
@@ -158,11 +160,12 @@ Page {
             id: sortComboBox
             anchors.top: buttonRow.bottom
             menu: ContextMenu {
-                MenuItem {text: "Сначала старые"}
-                MenuItem {text: "Сначала новые"}
-                MenuItem {text: "Больший приоритет"}
-                MenuItem {text: "Меньший приоритет"}
+                MenuItem {text: "Сначала старые"; color: "#000000"}
+                MenuItem {text: "Сначала новые"; color: "#000000"}
+                MenuItem {text: "Больший приоритет"; color: "#000000"}
+                MenuItem {text: "Меньший приоритет"; color: "#000000"}
             }
+            valueColor: "#000000"
             currentIndex: 0
         }
         // Контейнер для отображения раздела "Заметки"
@@ -180,7 +183,7 @@ Page {
                 }
                 // Устанавливаем отступ между элементами списка
                 spacing: 20
-                header: PageHeader { title: qsTr("Notes")}
+                header: PageHeader { title: qsTr("Notes"); titleColor: "#000000"}
                 delegate: NoteItem {
                     id: listNotesDelegate
                     property Note note: notesModel.noteData(index) ? notesModel.noteData(index) : null // Получаем Note объект
